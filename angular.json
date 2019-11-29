@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "observable-workers": {
+    "web-worker": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/observable-workers",
+            "outputPath": "dist/web-worker",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -26,7 +26,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "webWorkerTsConfig": "tsconfig.worker.json"
           },
           "configurations": {
             "production": {
@@ -63,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "observable-workers:build"
+            "browserTarget": "web-worker:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "observable-workers:build:production"
+              "browserTarget": "web-worker:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "observable-workers:build"
+            "browserTarget": "web-worker:build"
           }
         },
         "test": {
@@ -100,7 +101,8 @@
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "e2e/tsconfig.json",
+              "tsconfig.worker.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -111,15 +113,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "observable-workers:serve"
+            "devServerTarget": "web-worker:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "observable-workers:serve:production"
+              "devServerTarget": "web-worker:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "observable-workers"
+  "defaultProject": "web-worker"
 }
